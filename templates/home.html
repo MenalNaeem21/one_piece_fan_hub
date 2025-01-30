@@ -8,5 +8,18 @@
 <body>
     <h1>Welcome to One piece fan hub</h1>
     <h2>Become a crew member  of amazing discussion on this peak piece of fiction</h2>
+    <div class="row">
+        <div class="leftcolumn">
+          {% for post in posts reversed %} <!--to show latest post on top-->
+          <div class="card">
+            <a  style="text-decoration: none; color: blue;" href="#">
+              <h2>{{post.title}}</h2>
+              <h5>{{post.created_at}}</h5>
+              <p>{{post.body|truncatewords:10}}</p>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
 </body>
 </html>
