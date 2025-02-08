@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% block content %}
+<h2>{{discussion.title}}</h2>
+<p> By {{discussion.author}} | {{discussion.created_at}}</p>
+<p>{{discussion.content}}</p>
+<a  href="{% url 'discussion-create' %}">Start a New discussion</a>
+<h3>Comment</h3>
+{% for comment in discussion.comments.all %}
+<p>
+    <strong>{{comment.author}}</strong>:{{comment.content}}</p>
+    {% endfor %}
+    {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'add-comment' discussion.id %}">
+        {% csrf_token %}
+        <textarea name="content" required></textarea>
+        <button type="submit">Comment</button>
+         
+    </form>
+    {% else %}
+    <p> You Must<a href="{% url 'login' %}">login</a> to comment.  </p>
+    {% endif %}
+
+{% endblock %}
