@@ -13,3 +13,9 @@ class Discussion(models.Model):
     author=models.ForeignKey(User, on_delete=models.CASCADE) #user who created the post
     created_at=models.DateField(auto_now_add=True)
     updated_at=models.DateField(auto_now=True)
+class Comment(models.Model):
+    discussion=models.ForeignKey(Discussion,on_delete=models.CASCADE, related_name='comments')
+    author=models.ForeignKey(User,on_delete=models.CASCADE)
+    content=models.TextField()
+    created_at=models.DateTimeField(auto_now=True)
+    

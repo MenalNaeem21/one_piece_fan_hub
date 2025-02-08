@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+{% block content %}
+<h2>One Piece Discussions</h2>
+{% for discussion in discussions %}
+    <div>
+        <h3> 
+            <a href="{% url 'discussion-detail' discussion.id %}">{{discussion.title}}</a>
+            <p>By {{discussion.author}} | {{discussion.created_at}}</p>
+        </h3>
+    </div>
+    {% endfor %}
+    {% endblock %}

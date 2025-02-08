@@ -6,20 +6,25 @@
     <title>One Piece Fan-Club</title>
 </head>
 <body>
-    <h1>Welcome to One piece fan hub</h1>
-    <h2>Become a crew member  of amazing discussion on this peak piece of fiction</h2>
-    <div class="row">
-        <div class="leftcolumn">
-          {% for post in posts reversed %} <!--to show latest post on top-->
-          <div class="card">
-            <a  style="text-decoration: none; color: blue;" href="#">
-              <h2>{{post.title}}</h2>
-              <h5><small>Posted on {{post.created_at}}</small></h5>
-              <p>{{post.body|truncatewords:10}}</p>
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
+    {% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+  <h2>Recent Discussions</h2>
+  <ul>
+      {% for discussion in discussions %}
+          <li><a href="{% url 'discussion-detail' discussion.id %}">{{ discussion.title }}</a></li>
+      {% empty %}
+          <li>No discussions yet.</li>
+      {% endfor %}
+  </ul>
+
+  {% else %}
+ <h1>Welcome to One piece fan hub</h1>
+    <p>Become a crew member of amazing discussions on fan theories and peak arcs</p>
+    <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+    {% endif %}
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+ 
 </body>
 </html>
