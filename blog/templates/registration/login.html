@@ -1,9 +1,38 @@
-{% extends 'home.html' %}
-{% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type=" submit">Login</button>
-</form>
-<p>Don't have an account? <a href="{% url 'register' %}">Register Here</a></p>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - One Piece Fan Hub</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Corrected Path -->
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body class="login-page">
+    <div class="form-container">
+        <h2 class="login-h2">Login to Your Account</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="{{ form.username.id_for_label }}">Username:</label>
+        <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" 
+               class="custom-input" placeholder="Enter your username">
+            <!-- Password Field -->
+        <label for="{{ form.password.id_for_label }}">Password:</label>
+        <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}" 
+               class="custom-input" placeholder="Enter your password">   
+               {% if form.errors %}
+               <ul class="error-messages">
+                   {% for field in form %}
+                       {% for error in field.errors %}
+                           <li>{{ error }}</li>
+                       {% endfor %}
+                   {% endfor %}
+               </ul>
+           {% endif %}
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p>Don’t have an account? <a class="below-btn-text" href="{% url 'register' %}">Register</a></p>
+    </div>
+</body>
+</html>

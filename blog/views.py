@@ -10,8 +10,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 # Create your views here.
 def home(request):
-    posts=Post.objects.all()
-    return render(request,'home.html',{'posts':posts})
+    discussion=Discussion.objects.all().order_by('created_at')
+    return render(request,'home.html',{'discussions':discussion})
+
+
 
 def login_view(request):
   
@@ -53,7 +55,7 @@ class discussionDetailView(DetailView):
 class discussionCreateView(CreateView):
     model=Discussion
     fields=['title','content']
-    template_name='blog/discussion_from.html'
+    template_name='blog/discussion_form.html'
 
     def form_valid(self, form):
         return super().form_valid(form)

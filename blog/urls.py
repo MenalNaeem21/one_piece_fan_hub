@@ -10,7 +10,8 @@ urlpatterns=[
     path('discussion/<int:discussion_id>/comment/',add_comment,name='add-comment'),
     path("register/", register, name="register"),
     path("login/", login_view, name="login"),
-    path("logout/", logout_view, name="logout")
+    path("logout/", logout_view, name="logout"),
+
 
 
 

@@ -1,14 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Piece Fan-Club</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     {% if user.is_authenticated %}
   <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
   <h2>Recent Discussions</h2>
+  {% for discussion in discussions %}
+     <div class="card">
+         <a  style="text-decoration: none; color: blue;" href="{% url 'discussion-detail' discussion.id %}">
+       
+           <p>{{ discussion.title }} by {{ discussion.author }}</p> 
+    </a>
+  </div>
+  {% empty %}
+  <p>No discussions found.</p>   
+  {% endfor %}
+ <!--
   <ul>
       {% for discussion in discussions %}
           <li><a href="{% url 'discussion-detail' discussion.id %}">{{ discussion.title }}</a></li>
@@ -16,12 +33,20 @@
           <li>No discussions yet.</li>
       {% endfor %}
   </ul>
+  --> 
 
-  {% else %}
+    {% else %}
  <h1>Welcome to One piece fan hub</h1>
     <p>Become a crew member of amazing discussions on fan theories and peak arcs</p>
-    <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+    <nav>
+        <a href="/">🏴‍☠️ Home</a> | 
+        <a href="{% url 'login' %}">Login</a> | 
+        <a href="{% url 'register' %}">Register</a>
+    </nav>
     {% endif %}
+<!--    <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+-->>
+    
     <main>
         {% block content %}{% endblock %}
     </main>

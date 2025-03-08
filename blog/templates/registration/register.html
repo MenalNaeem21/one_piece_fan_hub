@@ -1,11 +1,35 @@
-{% extends "home.html" %}
 
-{% block content %}
-  <h2>Register</h2>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-  </form>
-  <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - One Piece Fan Hub</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Corrected Path -->
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body class="register-page">
+    <div class="form-container-reg">
+        <h2 class="reg-h2">Join the Crew</h2>
+        <form method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="reg-input">
+                {{ field.label_tag }}  <!-- Show field label -->
+                {{ field }}  <!-- Render field -->
+                <small class="helptext">{{ field.help_text }}</small> <!-- Help text under fields -->
+            </div>
+        {% endfor %}
+          
+            <button type="submit" class="btn">Register</button>
+        </form>
+        <p>Already a member? <a class="below-btn-text" href="{% url 'login' %}">Login</a></p>
+    </div>
+</body>
+</html>

@@ -3,6 +3,7 @@
 <h2>{{discussion.title}}</h2>
 <p> By {{discussion.author}} | {{discussion.created_at}}</p>
 <p>{{discussion.content}}</p>
+<a href="{% url 'home' %}">← Back to Discussions</a>
 <a  href="{% url 'discussion-create' %}">Start a New discussion</a>
 <h3>Comment</h3>
 {% for comment in discussion.comments.all %}

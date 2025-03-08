@@ -1,0 +1,211 @@
+body {
+    background-color: #0f0f0f; /* Dark theme */
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-image: url("/static/images/op.JPG");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+body.login-page{
+    background-image: url("/static/images/login.jpeg");
+    background-size: cover;
+}
+body.register-page {
+    background-image: url("/static/images/reg.jpeg") ;
+    background-size: cover;
+}
+h2 {
+    font-family: 'Pirata One', cursive;
+    font-size: 40px;
+    color: #f4b266; /* One Piece gold color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+    font-size: 40px;
+    color: #ffcc00; /* Gold like One Piece logo */
+}
+
+
+
+nav {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    font-size: 18px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff6600;
+}
+.form-container{
+    background: rgba(187, 174, 244, 0.8);
+    padding: 30px;
+    width: 400px;
+    margin: 80px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(196, 47, 245, 0.5);
+    text-align: center;
+}
+
+.custom-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #cb3deb;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.custom-input::placeholder {
+    color: rgba(214, 94, 9, 0.6);
+}
+
+/* 🌟 Error Message Styling */
+.error-messages {
+    list-style-type: none;
+    padding: 0;
+    font-size: 14px;
+    color: red;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.form-container-reg{
+    background: rgba(139, 22, 22, 0.8);
+    padding: 30px;
+    width: 400px;
+    margin: 80px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+    text-align: center;
+    align-items: center;
+}
+
+
+
+.form-container input{
+    width: 100%;
+    padding: 5px;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 2px solid #dc6606;
+    border-radius: 5px;
+    color:#000000;
+    background: rgba(255,255,255,0.1);
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+}
+.form-container-reg input{
+    width: 100%;
+    padding: 5px;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 2px solid #e8a56f;
+    border-radius: 5px;
+    color:#000000;
+    background: rgba(255,255,255,0.1);
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+}
+
+
+.form-container label{
+    display: block;
+    text-align: left;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight:bolder;
+    color:#dc6606;
+    margin-bottom: 5px;
+}
+
+.form-container-reg label{
+    display: block;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight:bolder;
+    color:#dacfa2;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.form-container-reg .helptext {
+    font-size: 14px;
+    color: #febc2d;
+    opacity: 0.8;
+    text-align: left;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+/* 🌟 Improve Error Messages */
+.form-container ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 14px;
+    color: red;
+    text-align: left;
+}
+.reg-h2{
+    font-family: 'Pirata One', cursive;
+    font-size: 40px;
+    color: #dacfa2; /* One Piece gold color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+
+}
+
+/* form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}*/
+
+/* 🌟 Buttons */
+.btn {
+    background-color:#f4b266;;
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 8px;
+}
+
+.btn:hover {
+    background-color: #ff6600; /* Luffy’s outfit color */
+    color: white;
+}
+.below-btn-text{
+    color:white;
+    font-size: bold;
+}
+.below-btn-text:hover{
+    color: #ff6600;
+    transition: 0.3s;
+}
+
+/* 🌟 Links */
+a {
+    color: #00aaff;
+}
+
+a:hover {
+    color: #ff6600;
+}
